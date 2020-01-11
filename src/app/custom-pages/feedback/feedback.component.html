@@ -1,0 +1,118 @@
+<!--Feedback Page-->
+<div class="feedback-wrap px-sm-4 py-4">
+	<div class="feedback-row row no-gutters">
+		<div class="col-12 col-sm-8 col-md-8 col-lg-8 mx-auto">
+			<div class="bg-white w-100 shadow-box rounded">
+				<div>
+					<div class="px-3 px-sm-5 py-5 rounded-top bg-primary">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-10">
+								<div class="mb-3">
+									<h4>Added here Your feedback</h4>
+								</div>
+								<div class="mb-3">
+									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row no-gutters bg-light px-3 px-sm-5 py-3  flex-column-reverse flex-lg-row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+							<ul class="nav nav-pills mx-n3" id="pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active rounded" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link rounded" id="pills-roadmap-tab" data-toggle="pill" href="#pills-roadmap" role="tab" aria-controls="pills-roadmap" aria-selected="false">Roadmap</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link rounded" id="pills-search-tab" data-toggle="pill" href="#pills-search" role="tab" aria-controls="pills-search" aria-selected="false">Search</a>
+								</li>
+							</ul>
+						</div>
+						<div class="text-nowrap col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex justify-content-start justify-content-lg-end mb-3 mb-lg-0">
+							<button class="btn btn-primary" (click)="addFeedback()"><i class="fa fa-plus mr-2"></i>Add Feedback</button>
+						</div>
+					</div>
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active px-3 px-sm-5 py-5" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+							<div class="mrgn-b-2 d-flex flex-wrap">
+								<div class="form-group mr-3 text-nowrap mb-sm-0">
+									<select class="form-control h-auto p-cursor custom-select">
+                              <option>Trending</option>
+                              <option>New</option>
+                              <option>Latest</option>
+                              <option>recently</option>
+                           </select>
+								</div>
+								<div class="form-group text-nowrap mb-sm-0">
+									<select class="form-control h-auto p-cursor custom-select">
+                              <option>Completed</option>
+                              <option>Archived</option>
+                           </select>
+								</div>
+							</div>
+							<div class="row mx-n2">
+								<ng-container *ngFor="let feedback of feedbackList">
+									<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 tab-content px-2 mrgn-b-2">
+										<div>
+											<h5 class="mb-1 font-weight-normal"><a href="javascript:void(0)" (click)="addComment()">{{feedback.heading}}</a></h5>
+											<span class="text-muted d-block mb-1 font-sm">{{feedback.detail}}</span>
+											<small class="text-muted meta-info">by {{feedback.feedbackBy}} - <a class="text-muted" href="javascript:void(0)" (click)="addComment()">{{feedback.numberOfComments}} comment</a></small>
+										</div>
+									</div>
+									<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 d-flex justify-content-end mrgn-b-2 px-2">
+										<div class="card text-nowrap">
+											<button class="btn border" type="button" (click)="likeByCurrentUser(feedback)">{{feedback.commentLikes}}<i class="fa fa-caret-up ml-2"></i></button>
+										</div>
+									</div>
+								</ng-container>
+							</div>
+						</div>
+						<div class="tab-pane fade px-3 px-sm-5" id="pills-roadmap" role="tabpanel" aria-labelledby="pills-roadmap-tab">
+							<div class="roadmap-timeline py-5">
+								<div class="tab-content mrgn-b-2" *ngFor="let mapList of roadMapList">
+									<div class="mb-3">
+										<button class="btn btn-success btn-sm">{{mapList.status}}</button>
+									</div>
+									<div class="mb-3 meta-info">
+										<span class="text-muted font-sm">{{mapList.date}}</span>
+									</div>
+									<div class="content">
+										<span class="d-block mb-2">{{mapList.title1}}</span>
+										<span class="d-block">{{mapList.title2}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade px-3 px-sm-5 py-5" id="pills-search" role="tabpanel" aria-labelledby="pills-search-tab">
+							<div class="w-100 mrgn-b-2">
+								<input class="form-control" name="search" placeholder="Search Here..." type="text">
+							</div>
+							<div class="row mx-n2">
+								<ng-container *ngFor="let list of searchList">
+									<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 tab-content mrgn-b-2 px-2">
+										<div class="mb-2">
+											<h5 class="mb-1 font-weight-normal"><a href="javascript:void(0)" (click)="addComment()">{{list.title}}</a></h5>
+											<p class="text-muted mb-1">{{list.detail}}</p>
+											<small class="text-muted meta-info">by {{list.commentBy}} - <a class="text-muted" href="javascript:void(0)" (click)="addComment()">
+                                    {{list.numberOfComments}} comment</a></small>
+										</div>
+										<div>
+											<button class="btn btn-success btn-sm">{{list.status}}</button>
+										</div>
+									</div>
+									<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 d-flex justify-content-end px-2 mrgn-b-2">
+										<div class="card text-nowrap">
+											<button class="btn border" type="button" (click)="likeByCurrentUser(list)">{{list.commentLikes}}<i class="fa fa-caret-up ml-2"></i></button>
+										</div>
+									</div>
+								</ng-container>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

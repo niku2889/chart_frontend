@@ -1,0 +1,124 @@
+<!--Invoice Wrapper-->
+<div class="invoice-wrapper">
+	<div class="container px-0">
+		<div class="chk-block">
+			<div class="chk-block-title">
+				<div class="d-flex justify-content-between">
+					<div class="d-flex align-content-start">
+						<h4 class="text-capitalize">{{'Invoice'|translate}}</h4>
+					</div>
+					<div class="d-flex align-content-end">
+						<h4>{{'Order # 12345'|translate}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="chk-block-content">
+				<div class="row mb-5">
+					<div class="col-12 col-sm-7 col-md-8 col-lg-7 col-xl-7">
+						<div class="d-flex mb-2 align-items-center">
+							<div>
+								<img src="assets/img/logo-sign.png" width="39" height="39">
+							</div>
+							<div class="mx-2">
+								<img src="assets/img/site-logo.png" width="121" height="16">
+							</div>
+						</div>
+						<div>
+							<p class="mb-2"><strong>Hello, Stanley Jones</strong></p>
+							<p>Thanks a lot because you keep purchasing our products. Our company promises to provide high quality products for you as well as outstanding customer service for every transaction.</p>
+						</div>
+					</div>
+					<div class="col-12 col-sm-5 col-md-4 col-lg-5 col-xl-5 text-sm-right">
+						<p class="mb-2">
+							<span class="mr-1"><strong>Order Date:</strong></span>
+							<span>May 17, 2017</span>
+						</p>
+						<p class="mb-2">
+							<span class="mr-1"><strong>Order Status:</strong></span>
+							<span class="badge badge-success">Paid</span>
+						</p>
+						<p>
+							<span class="mr-1"><strong>Order ID:</strong></span>
+							<span>#158450</span>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+						<h3 class="mb-2">Billed to:</h3>
+						<address class="mb-3">
+	                 	<span class="address-head mb-2">Iron Network, Inc.</span>
+	                 	<span>795 Folsom Ave, Suite 600</span>
+	                 	<span>San Francisco, CA 94107</span>
+	                 	<span class="d-inline-block mr-1" title="Phone">Phone:</span>(133) 456-7890
+	             	</address>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-sm-right">
+						<h3 class="mb-2">Shiped to:</h3>
+						<address class="mb-3">
+	                 	<span class="address-head mb-2">Xyz, Inc.</span>
+	                 	<span>795 Folsom Ave, Suite 600</span>
+	                 	<span>San Francisco, CA 94107</span>
+	                 	<span class="d-inline-block mr-1" title="Phone">Phone:</span>(123) 456-7890
+	             	</address>
+					</div>
+				</div>
+				<div class="row mb-5">
+					<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+						<address>
+	                 	<span class="mb-2"><strong>Payment Method:</strong></span>
+	                 	<span>Visa ending **** 4242</span>
+	                 	<span>jsmith@email.com</span>
+	             	</address>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-sm-right">
+						<address>
+	                 	<span class="mb-2"><strong>order date:</strong></span>
+	                 	<span>March 7, 2017</span>
+	             	</address>
+					</div>
+				</div>
+				<div class="table-responsive px-1 mb-4">
+					<table class="table table-hover mb-0">
+						<thead>
+							<tr>
+								<th>Sr.No</th>
+								<th>Items</th>
+								<th>Quantity</th>
+								<th>Unit Cost</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let invoice of invoiceTable">
+								<th>{{invoice.serialNumber}}</th>
+								<td><strong>{{invoice.itemName}}</strong><br> {{invoice.itemBrand}}
+								</td>
+								<td>{{invoice.quantity}}</td>
+								<td>${{invoice.unitPrice}}</td>
+								<td>${{invoice.quantity*invoice.unitPrice}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="grand-totle text-right">
+					<div class="mb-3">
+						<p class="mb-2">
+							<span class="mr-1"><strong>Sub-total:</strong></span>
+							<span>$4120.00</span>
+						</p>
+						<p class="mb-0">
+							<span class="mr-1"><strong>VAT (12.5):</strong></span>
+							<span>$515</span>
+						</p>
+					</div>
+					<h2 class="mb-3">$4635.00 USD</h2>
+					<div class="invoice-button">
+						<button type="button" class="btn btn-primary btn-square mr-2">Make a Payment</button>
+						<button type="button" class="btn btn-secondary btn-square"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

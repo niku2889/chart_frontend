@@ -1,0 +1,236 @@
+<!--Faq Wrap-->
+<div class="faq-wrap">
+	<div class="banner-wrap pt-4 bg-secondary">
+		<div class="container">
+			<div class="row">
+				<div class="input-group mb-5 col-12 col-sm-6 col-md-6 col-lg-6 mx-auto">
+					<input class="form-control rounded" name="search" placeholder="What do you need help with?" type="text">
+					<span class="input-group-btn">
+			   		<i class="fa fa-search" aria-hidden="true"></i>
+			   	</span>
+				</div>
+			</div>
+			<div class="tablist-wrap d-flex justify-content-center mb-0 mb-sm-4">
+				<ul class="nav nav-pills faq-list-wrap" id="pills-tab" role="tablist" (click)="faqListActive()">
+					<li class="nav-item faq-list-item">
+						<a class="nav-link active rounded faq-list mr-2 mr-md-3 d-flex justify-content-center align-items-center" id="pills-welcome-tab" data-toggle="pill" href="#pills-welcome" role="tab" aria-controls="pills-welcome" (click)="showQuesContent()">
+							<div class="font-2x icon"><i class="fa fa-play-circle-o" aria-hidden="true"></i></div>
+							<span class="faq-list-name text-dark font-sm">{{'Welcome'|translate}}</span></a>
+					</li>
+					<li class="nav-item faq-list-item">
+						<a class="nav-link rounded faq-list mr-2 mr-md-3 d-flex justify-content-center align-items-center" id="pills-create-tab" data-toggle="pill" href="#pills-create" role="tab" aria-controls="pills-create" aria-selected="false" (click)="showQuesContent()">
+							<div class="font-2x icon"><i class="fa fa-list"></i></div>
+							<span class="faq-list-name text-dark font-sm">{{'Profile'|translate}}</span></a>
+					</li>
+					<li class="nav-item faq-list-item">
+						<a class="nav-link rounded faq-list mr-2 mr-md-3 d-flex justify-content-center align-items-center" id="pills-connect-tab" data-toggle="pill" href="#pills-connect" role="tab" aria-controls="pills-connect" aria-selected="false" (click)="showQuesContent()">
+							<div class="font-2x icon"><i class="fa fa-cog"></i></div>
+							<span class="faq-list-name text-dark font-sm">{{'Connect'|translate}}</span></a>
+					</li>
+					<li class="nav-item faq-list-item">
+						<a class="nav-link rounded faq-list mr-2 mr-md-3 d-flex justify-content-center align-items-center" id="pills-result-tab" data-toggle="pill" href="#pills-result" role="tab" aria-controls="pills-result" aria-selected="false" (click)="showQuesContent()">
+							<div class="font-2x icon"><i class="fa fa-bar-chart"></i></div>
+							<span class="faq-list-name text-dark font-sm">{{'Result'|translate}}</span></a>
+					</li>
+					<li class="nav-item faq-list-item">
+						<a class="nav-link rounded faq-list mr-2 mr-md-3 d-flex justify-content-center align-items-center" id="pills-account-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="false" (click)="showQuesContent()">
+							<div class="font-2x icon"><i class="fa fa-money"></i></div>
+							<span class="faq-list-name text-dark font-sm">{{'Account'|translate}}</span></a>
+					</li>
+					<li class="nav-item faq-list-item">
+						<a class="nav-link rounded faq-list mr-2 mr-md-3 d-flex justify-content-center align-items-center" id="pills-share-tab" data-toggle="pill" href="#pills-share" role="tab" aria-controls="pills-share" aria-selected="false" (click)="showQuesContent()">
+							<div class="font-2x icon"><i class="fa fa-share-square"></i></div>
+							<span class="faq-list-name text-dark font-sm">{{'Share'|translate}}</span></a>
+					</li>
+				</ul>
+				<div class="drop-icon">
+					<i class="fa fa-caret-down" aria-hidden="true"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tab-content pt-5" id="pills-tabContent" *ngIf="showFaqQuesStatus">
+		<div class="tab-pane fade show active" id="pills-welcome" role="tabpanel" aria-labelledby="pills-welcome-tab">
+			<div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-6 col-md-6 col-lg-6" *ngFor="let pillsWelcome of pillsWelcomeContent">
+							<div class="grid-b-space">
+								<div>
+									<h4>{{pillsWelcome.heading}}</h4>
+								</div>
+								<div>
+									<p>{{pillsWelcome.content}}
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="pills-create" role="tabpanel" aria-labelledby="pills-create-tab">
+			<div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4" *ngFor="let pillsCreate of pillsCreateContent">
+							<div class="mrgn-b-2 border-bottom border-dark">
+								<h4 class="mb-3">{{pillsCreate.heading}}</h4>
+							</div>
+							<div class="tab-list">
+								<ul class="list-unstyled">
+									<li class="mb-4" *ngFor="let pillsCreate of pillsCreate.content" (click)="onMyFaqPageContent()">
+										<a class="text-dark" id="create{{pillsCreate.id}}">{{pillsCreate.data}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="pills-connect" role="tabpanel" aria-labelledby="pills-connect-tab">
+			<div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4" *ngFor="let pillsConnect of pillsConnectContent">
+							<div class="mrgn-b-2 border-bottom border-dark">
+								<h4 class="mb-3">{{pillsConnect.heading}}</h4>
+							</div>
+							<div class="tab-list">
+								<ul class="list-unstyled">
+									<li class="mb-4" *ngFor="let pillsConnect of pillsConnect.content" (click)="onMyFaqPageContent()">
+										<a class="text-dark">{{pillsConnect}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="pills-result" role="tabpanel" aria-labelledby="pills-result-tab">
+			<div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4" *ngFor="let pillsResult of pillsResultContent" (click)="onMyFaqPageContent()">
+							<div class="mrgn-b-2 border-bottom border-dark">
+								<h4 class="mb-3">{{pillsResult.heading}}</h4>
+							</div>
+							<div class="tab-list">
+								<ul class="list-unstyled">
+									<li class="mb-4" *ngFor="let pillsResult of pillsResult.content">
+										<a class="text-dark">{{pillsResult}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="pills-account" role="tabpanel" aria-labelledby="pills-account-tab">
+			<div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4" *ngFor="let pillsAccount of pillsAccountContent">
+							<div class="mrgn-b-2 border-bottom border-dark">
+								<h4 class="mb-3">{{pillsAccount.heading}}</h4>
+							</div>
+							<div class="tab-list">
+								<ul class="list-unstyled">
+									<li class="mb-4" (click)="onMyFaqPageContent()" *ngFor="let pillsAccount of pillsAccount.content">
+										<a class="text-dark">{{pillsAccount}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane fade" id="pills-share" role="tabpanel" aria-labelledby="pills-share-tab">
+			<div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-4" *ngFor="let pillsShare of pillsShareContent">
+							<div class="mrgn-b-2 border-bottom border-dark">
+								<h4 class="mb-3">{{pillsShare.heading}}</h4>
+							</div>
+							<div class="tab-list">
+								<ul class="list-unstyled">
+									<li class="mb-4" (click)="onMyFaqPageContent()" *ngFor="let pillsShare of pillsShare.content">
+										<a class="text-dark">{{pillsShare}}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--	Contact Section	-->
+		<div class="bg-light call-in-action px-3">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-sm-10 col-md-10 col-lg-10 mx-auto">
+						<div class="text-center">
+							<div class="mb-4">
+								<h2 class="font-2x">{{"Didn't get what you were looking for?"|translate}}</h2>
+							</div>
+							<div class="grid-b-space text-nowrap">
+								<button class="btn btn-large btn-dark">Contact Support</button>
+							</div>
+							<div class="">
+								<img class="img-fluid" src="assets/img/chair.png" alt="support image" width="400" height="500">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--	Faq Popup-->
+	<div *ngIf="showFaqStatus">
+		<div class="container">
+			<div class="row pt-5 pt-sm-4">
+				<div class="col-12 col-sm-8 col-md-8 col-lg-8">
+					<div class="mb-5">
+						<div class="mb-3">
+							<h2 class="mb-0">{{"My Faq Page"|translate}}</h2>
+						</div>
+						<div>
+							<h3 class="mb-0 font-weight-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</h3>
+						</div>
+					</div>
+					<div>
+						<ol class="mb-5">
+							<li class="mb-5" *ngFor="let faq of myFaqPage">
+								<div class="mb-5">
+									<p class="mb-0">{{faq.content}}</p>
+								</div>
+								<div class="text-center">
+									<img class="img-fluid" src="{{faq.image}}" alt="support image" width="400" height="300">
+								</div>
+							</li>
+						</ol>
+					</div>
+				</div>
+				<div class="col-12 col-sm-4 col-md-4 col-lg-4">
+					<div>
+						<div class="mb-4">
+							<h4 class="mb-0">{{"Related Things."|translate}}</h4>
+						</div>
+						<div class="tab-list">
+							<ul class="list-unstyled">
+								<li class="mb-3" *ngFor="let things of relatedThings">
+									<a class="text-dark">{{things}}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

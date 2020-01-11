@@ -1,0 +1,166 @@
+<!--About Page-->
+<div class="about-wrap">
+	<div class="banner-wrap bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="text-center mb-4 col-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+					<h2 class="mb-0 text-dark font-weight-light"><span class="font-3x">
+			   		{{'About Us'|translate}}
+			   	</span></h2>
+				</div>
+			</div>
+			<div class="text-center mb-5">
+				<button class="btn btn-dark btn-lg" (click)="router.navigate(['/session/register'])">{{'Sign Up Free'|translate}}</button>
+			</div>
+		</div>
+	</div>
+	<div class="pb-5">
+		<div class="container">
+			<div class="banner-overlay-image text-center pb-5">
+				<img class="img-fluid" src="assets/img/laptop.png" alt="overlay banner" width="821" height="373">
+			</div>
+			<div>
+				<div class="row">
+					<div class="text-center col-12 col-sm-12 col-md-10 col-lg-8 mx-auto">
+						<h3 class="font-weight-normal"><span class="font-2x custom-resp-font">We possess within us two minds. So far i have written only of the conscious mind. I would now like to introduce to your second mind.</span></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="counter-wrapper text-center py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-sm-6 col-md-3 col-lg-3 mb-3 mb-md-0" *ngFor="let about of aboutProject">
+					<div class="stats-counter text-center">
+						<h2 class="font-weight-normal"><span class="font-3x d-block">{{about.numberOf}}</span></h2>
+						<div class="counter-title mb-3">
+							<h3 class="font-weight-normal">{{about.heading|translate}}</h3>
+						</div>
+						<div class="counter-description">
+							<p class="mb-0">{{about.content}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="container">
+			<div>
+				<div class="row align-items-center py-4 pt-5" *ngFor="let description of description_1">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+						<div>
+							<div class="mb-4">
+								<h3 class="mb-0 font-weight-light"><span class="font-2x">{{description.heading}}</span></h3>
+							</div>
+							<div class="mb-4">
+								<p class="mb-0 lead">{{description.content}}</p>
+							</div>
+							<hr class="border-dark">
+							<div class="mb-4">
+								<p class="font-2x mb-0">"{{description.headline}}"</p>
+							</div>
+							<div>
+								<img src="{{description.signatureImage}}" alt="content image">
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+						<div>
+							<img class="img-fluid" src="{{description.image}}" alt="About Us Image" width="1060" height="681">
+						</div>
+					</div>
+				</div>
+				<div class="row align-items-center py-4" *ngFor="let description of description_2">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+						<div>
+							<img class="img-fluid" src="{{description.image}}" alt="About Us Image" width="1060" height="681">
+						</div>
+					</div>
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+						<div>
+							<div class="mb-4">
+								<h3 class="mb-0 font-weight-light"><span class="font-2x">{{description.heading}}</span></h3>
+							</div>
+							<div class="mb-4">
+								<p class="mb-0 lead">{{description.content}}</p>
+							</div>
+							<hr class="border-dark">
+							<div class="mb-4">
+								<p class="font-2x mb-0">"{{description.headline}}"</p>
+							</div>
+							<div>
+								<img src="{{description.signatureImage}}" alt="content image">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row align-items-center py-4" *ngFor="let description of description_3">
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+						<div>
+							<div class="mb-4">
+								<h3 class="mb-0 font-weight-light"><span class="font-2x">{{description.heading}}</span></h3>
+							</div>
+							<div class="mb-4">
+								<p class="mb-0 lead">{{description.content}}</p>
+							</div>
+							<hr class="border-dark">
+							<div class="mb-4">
+								<p class="font-2x mb-0">"{{description.headline}}"</p>
+							</div>
+							<div>
+								<img src="{{description.signatureImage}}" alt="content image">
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-4">
+						<div>
+							<img class="img-fluid" src="{{description.image}}" alt="About Us Image" width="1060" height="681">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-light sign-up">
+		<div class="container">
+			<div class="text-center">
+				<div class="mb-4">
+					<h2 class="mb-0 font-weight-light text-dark"><span class="font-3x">How to own for free</span></h2>
+				</div>
+				<div class="row">
+					<div class="mb-4 col-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+						<p class="mb-0 lead text-dark">We possess within us two minds so far i have Written only of the conscious mind.</p>
+					</div>
+				</div>
+				<div>
+					<button class="btn btn-lg btn-success" (click)="router.navigate(['/session/register'])">Sign Up Free</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="py-5">
+		<div class="container">
+			<div>
+				<div class="mb-4">
+					<h2 class="font-weight-normal"><span class="font-md">{{'Our Recent Work'|translate}}</span></h2>
+				</div>
+				<div class="row">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4" *ngFor="let work of recentWork">
+						<div class="mb-4">
+							<a [routerLink]="['/blog/blog-detail']"><img class="img-fluid" src="{{work.image}}" alt="About Us Image" width="700" height="390"></a>
+						</div>
+						<div>
+							<div>
+								<h5 class="mb-2">{{work.learn}}</h5>
+								<h3 class="mb-2"><a [routerLink]="['/blog/blog-detail']" class="text-dark">{{work.heading}}</a></h3>
+								<p class="mb-0">{{work.content}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

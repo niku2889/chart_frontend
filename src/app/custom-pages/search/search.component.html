@@ -1,0 +1,54 @@
+<!--Search Wrapper-->
+<div class="search-wrapper">
+	<div class="container px-0">
+		<div>
+			<div class="card shadow-box py-5 px-4 mb-4 search-form-wrap">
+				<div class="row">
+					<div class="col-12 col-sm-8 col-md-8 col-lg-6 col-xl-6 mb-3 mb-sm-0">
+						<form>
+							<div>
+								<input class="form-control" placeholder="Search Here" type="text">
+							</div>
+						</form>
+					</div>
+					<div class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+						<button class="btn btn-md bg-primary h-100">Search</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card shadow-box px-4 py-4">
+			<div class="search-list-wrap">
+				<div class="mr-3 my-3 mb-4">
+					<h4 class="search-title font-weight-light">Search Result For
+						<span class="text-primary text-lowercase font-weight-bold">Admin Template</span>
+					</h4>
+				</div>
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+						<div class="card px-4 py-4 grid-b-space border" *ngFor="let search of searchPageContent">
+							<div class="search-content-wrap d-block d-md-flex align-items-start justify-content-start">
+								<div class="search-image mb-3 mb-md-0">
+									<a class="d-inline-block" routerLink="/blog/blog-detail"><img class="img-fluid" alt="search content image" src="{{search.image}}" width="700" height="450"></a>
+								</div>
+								<div class="search-content">
+									<div>
+										<h4 class="mb-2 text-capitalize"><a class="text-primary" routerLink="/blog/blog-detail">{{search.heading}}</a></h4>
+									</div>
+									<div class="mb-2 meta-info">
+										<span class="text-muted font-sm mr-3 inline-block meta-date">
+				      				<i class="fa fa-calendar-o font-sm mr-2" aria-hidden="true"></i>{{search.date|date}}</span>
+										<span class="text-muted font-sm meta-name"><i class="fa fa-user mr-2" aria-hidden="true"></i>{{search.name}}</span>
+									</div>
+									<div>
+										<p>{{search.content}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

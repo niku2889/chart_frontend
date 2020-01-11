@@ -1,0 +1,31 @@
+<!--Material Icons-->
+<div class="material-icon">
+	<div class="card mb-3">
+		<div class="card-body">
+			<div class="p-2 mb-2">
+				<h3>HTML</h3>
+				<p>Always use Material Icon Like this:</p>
+				<code>&lt;mat-icon&gt;grade&lt;/mat-icon&gt;</code></div>
+			<div class="p-2">
+				<h3>Output</h3>
+				<p>Output of used Icon</p>
+				<i class="mat-icon material-icons">grade</i>
+			</div>
+		</div>
+	</div>
+	<div class="chk-block">
+		<div class="chk-block-title">
+			<h3 class="text-capitalize">{{'List Of All Material Icons'|translate}}</h3>
+		</div>
+		<div class="chk-block-content over-hidden">
+			<div class="row">
+				<div *ngFor="let icon of icons" class="col-sm-6 col-md-6 col-lg-4 col-xl-4 icon-wrap">
+					<div class="icon-content d-flex">
+						<div class="icon mr-3"><i class="mat-icon material-icons">{{ icon }}</i></div>
+						<div class="icon-name">{{ icon }}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+.blog-detail-wrapper {
+  padding: 0 30px;
+}
+@media (max-width:576px){
+	.blog-detail-wrapper{
+		padding:0 1rem;
+   }
+   .blog-banner{
+      padding-left:1rem;
+      padding-right:1rem;
+   }
+}		

@@ -1,0 +1,32 @@
+.custom-select-group{
+   position: relative;
+   select{
+      appearance: none;
+      line-height: 1;
+      padding-right: 20px;
+   }
+   label{
+      position: absolute;
+      right: 10px;
+      margin: 0;
+      top: calc(50% - 12px);
+      pointer-events: none;
+   }
+}
+.taskboard-title{
+   height:50px;
+}
+.taskboard-content{
+   height: calc(100% - 50px);
+   min-height: 230px;
+}
+@media(max-width:1199px){
+   .taskboard-sec-wrap .border-right:nth-child(2n){
+      border-right-width: 0 !important;
+   }
+}
+@media(max-width:575px){
+   .taskboard-sec-wrap .border-right{
+      border-right-width: 0 !important;
+   }
+}

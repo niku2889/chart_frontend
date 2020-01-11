@@ -1,0 +1,82 @@
+<!--Pricing Page V2-->
+<div class="pricing-wrapper pricingV2">
+	<div class="banner-wrap bg-secondary text-center py-5 mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-10 mx-auto">
+					<h2 class="d-inline-block grid-b-space font-weight-light">
+						<span class="font-2x">{{'Pricing Table'|translate}}</span>
+					</h2>
+					<p class="grid-b-space">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+					<div class="switch-wrap">
+						<h4 class="font-weight-normal d-inline-block align-middle mb-0">Monthly</h4>
+						<div class="onoffswitch d-inline-block align-middle mx-3">
+							<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-price1" checked (change)="switchEvent($event)">
+							<label class="onoffswitch-label mb-0" for="switch-price1">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                     </label>
+						</div>
+						<h4 class="font-weight-normal d-inline-block align-middle mb-0">Yearly</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pricing-content-wrap">
+		<div class="container">
+			<div class="pricing-row1 row py-5">
+				<div class="col-12 col-md-10 col-xl-4 mx-auto mx-xl-0" *ngFor="let price of pricingV2">
+					<div class="card text-center border pricing-item {{price.status}}">
+						<div class="card-body text-center">
+							<label class="ribbon top-right ribbon-primary">
+                        <span>{{price.ribbonName}}</span>
+                     </label>
+							<div class="price-title mb-5">
+								<h3 class="font-2x mb-0">{{price.heading}}</h3>
+								<p>{{price.label}}</p>
+							</div>
+							<hr class="mrgn-b-2">
+							<div class="price-wrap mrgn-b-2">
+								<ng-container *ngIf="checked; else noChecked">
+									<h5><span class="font-2x">${{price.yearlyPrice}}</span>/yearly</h5>
+								</ng-container>
+								<ng-template #noChecked>
+									<h5><span class="font-2x">${{price.monthlyPrice}}</span>/monthly</h5>
+								</ng-template>
+							</div>
+							<div class="card-feature mb-5">
+								<ul class="list-unstyled">
+									<li *ngFor="let feature of price.features">
+										<p>
+											<i class="fa {{feature.color}} mr-2 {{feature.icon}}"></i> {{feature.content}}
+										</p>
+										<hr>
+									</li>
+								</ul>
+							</div>
+							<a href="javascript:void(0)" class="btn btn-primary btn-lg buynow-btn">Buy Now</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="subscribe-sec-wrap bg-light border shadow-box py-4 rounded my-4">
+				<div class="row align-items-center">
+					<div class="col-12 col-lg-7">
+						<div class="subscribe-text m-2">
+							<h6 class="font-weight-normal mb-0"><span class="font-2x">Signup now to get an instant 10% Off</span></h6>
+						</div>
+					</div>
+					<div class="col-12 col-lg-5">
+						<div class="button-wrap text-left text-lg-right m-2">
+							<button class="btn btn-primary text-nowrap" type="button">
+                        Sign Up
+                     </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Pricing Wrapper Closed -->
